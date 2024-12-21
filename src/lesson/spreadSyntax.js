@@ -25,6 +25,9 @@ function arrayFn(array) {
 console.log(arrayFn(packageManager));
 
 // 問題 2
+// 下記条件を満たしたオブジェクトをスプレッド構文を使用して作成し、consoleに出力してください。
+// ・objectAのversionプロパティをobjectBのversionプロパティで更新
+// ・新しいプロパティroutingLibrary: 'Vue Router'を追加
 const objectA = {
   language: 'JavaScript',
   framework: 'Vue',
@@ -35,4 +38,10 @@ const objectB = {
   version: 3,
 };
 
-console.log();
+const objectC = {
+  routingLibrary: 'Vue Router'
+};
+
+const updatedObject = {...objectA, ...objectB, ...objectC};
+
+console.log(updatedObject);
