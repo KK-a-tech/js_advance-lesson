@@ -24,8 +24,9 @@ const [val1, val2, val3] = arrayFn('hoge');
 console.log(val3);
 
 // 問題 2
-function objectFn() {
-  console.log();
+// 関数objectFnの引数を分割代入でnameのみ受け取り、consoleに出力してください。
+function objectFn(arg) {
+  console.log(arg);
 }
 
 const argObject = {
@@ -33,4 +34,6 @@ const argObject = {
   place: 'Shibuya',
 };
 
-objectFn(argObject);
+const { name } = argObject;
+
+objectFn(name);
