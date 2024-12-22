@@ -1,13 +1,10 @@
-import { createErrorElement, createElements } from './createElement.js';
-import { $axios } from './axiosHelper.js';
+import {$axios} from './axiosHelper.js';
+import {createErrorElement, createElements} from './createElement.js';
 
 window.addEventListener('DOMContentLoaded', () => {
 
-  const characterElement = document.getElementById('character');
-  const messageElement = document.getElementById('error-message');
-  const mainElement = document.querySelector('main');
-  const listElement = document.getElementById("list");
-
+  const listElement = document.getElementById('list');
+  const allUrl = `https://pokeapi.co/api/v2/pokemon/?limit=151`;
   const pokeInfoHtml = (image, name) =>
     `
       <li class="list-item">
@@ -18,38 +15,18 @@ window.addEventListener('DOMContentLoaded', () => {
       </li>
     `;
   
-  const allUrl = `https://pokeapi.co/api/v2/pokemon/?limit=151`;
-
-  if (messageElement !== null) messageElement.remove();
-
-  if (characterElement) {
-    while (characterElement.lastChild) {
-      characterElement.removeChild(characterElement.lastChild);
-    }
-  }
-
-  const getInfo = $axios(allUrl);
-  getInfo.then(res => {
+  $axios(allUrl).then(res => {
     res.data.results.forEach(val => {
-      const getImage = $axios(val.url);
-      getImage.then(res => {
+      const pokeUrl = val.url;
+      $axios(pokeUrl).then(res => {
         const image = res.data.sprites.other['official-artwork'].front_default;
-        const jaUrl = res.data.species.url;
-        const getName = $axios(jaUrl);
-        getName.then(res => {
+        const pokeUrlJa = res.data.species.url;
+        $axios(pokeUrlJa).then(res => {
           const name = res.data.names[0].name;
-          if (listElement) {
-            const element = createElements(pokeInfoHtml(image, name));
-            list.appendChild(element);
-          }
-        }).catch(err => {
-          mainElement.appendChild(createErrorElement(err));
-        });
-      }).catch(err => {
-        mainElement.appendChild(createErrorElement(err));
-      });
+          const element = createElements(pokeInfoHtml(image, name));
+          listElement.appendChild(element);
+        }).catch(err => listElement.appendChild(createErrorElement(err)));
+      }).catch(err => listElement.appendChild(createErrorElement(err)));
     });
-  }).catch(err => {
-    mainElement.appendChild(createErrorElement(err));
-  });
+  }).catch(err => listElement.appendChild(createErrorElement(err)));
 });
