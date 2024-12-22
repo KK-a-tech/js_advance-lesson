@@ -13,6 +13,8 @@
 
 // 練習問題
 // 問題 1
-const testFn = function(name) {
+const testFn = name => {
   return `Gizumo ${name}`;
 };
+
+console.log(testFn('hoge'));

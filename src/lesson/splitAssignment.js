@@ -17,9 +17,13 @@ function arrayFn(arg) {
   return ['jQuery', 'Vue', arg];
 }
 
+const [val1, val2, val3] = arrayFn('hoge');
+
+console.log(val3);
+
 // 問題 2
-function objectFn() {
-  console.log();
+function objectFn(arg) {
+  console.log(arg);
 }
 
 const argObject = {
@@ -27,4 +31,6 @@ const argObject = {
   place: 'Shibuya',
 };
 
-objectFn(argObject);
+const { name } = argObject;
+
+objectFn(name);

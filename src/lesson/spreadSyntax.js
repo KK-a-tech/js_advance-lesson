@@ -17,6 +17,8 @@ const packageManager = ['npm', 'yarn', 'pnpm'];
 
 function arrayFn(array) {
   const framework = ['Vue', 'React', 'Svelte'];
+  const updatedCompanyInfo = [...array, ...framework];
+  return updatedCompanyInfo;
 }
 
 console.log(arrayFn(packageManager));
@@ -32,4 +34,10 @@ const objectB = {
   version: 3,
 };
 
-console.log();
+const objectC = {
+  routingLibrary: 'Vue Router'
+};
+
+const updatedObject = {...objectA, ...objectB, ...objectC};
+
+console.log(updatedObject);
