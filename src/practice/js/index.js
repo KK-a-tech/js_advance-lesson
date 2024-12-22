@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
           mainElement.appendChild(createErrorElement(err));
         });
       }).catch(err => {
-        maimainElementn.appendChild(createErrorElement(err));
+        mainElement.appendChild(createErrorElement(err));
       });
     });
   }).catch(err => {
