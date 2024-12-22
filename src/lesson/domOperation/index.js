@@ -10,9 +10,7 @@ console.log(cardMocha);
 console.log(cardYellow);
 
 button.addEventListener('click', () => {
-  // title要素に.animate__hingeクラスを付与
   title.classList.add('animate__hinge');
-  // 2秒後にtitle要素から.animate__hingeクラスを削除
   setTimeout(() => {
     title.classList.remove('animate__hinge');
     cardMocha.classList.add('card-animation');

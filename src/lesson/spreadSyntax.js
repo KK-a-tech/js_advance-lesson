@@ -13,7 +13,6 @@
 
 // 練習問題
 // 問題 1
-// consoleにpackageManagerとframeworkがマージされた配列が出力されるように、関数arrayFnの返り値をスプレッド構文を使用して定義してください。
 const packageManager = ['npm', 'yarn', 'pnpm'];
 
 function arrayFn(array) {
@@ -25,9 +24,6 @@ function arrayFn(array) {
 console.log(arrayFn(packageManager));
 
 // 問題 2
-// 下記条件を満たしたオブジェクトをスプレッド構文を使用して作成し、consoleに出力してください。
-// ・objectAのversionプロパティをobjectBのversionプロパティで更新
-// ・新しいプロパティroutingLibrary: 'Vue Router'を追加
 const objectA = {
   language: 'JavaScript',
   framework: 'Vue',
