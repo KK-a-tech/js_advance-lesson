@@ -10,6 +10,7 @@
 
 
 
+
 // 練習問題
 // 問題 1
 function discountRateCalc(price, rate = 5) {
