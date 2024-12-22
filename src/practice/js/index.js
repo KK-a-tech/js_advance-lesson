@@ -25,8 +25,8 @@ window.addEventListener('DOMContentLoaded', () => {
           const name = res.data.names[0].name;
           const element = createElements(pokeInfoHtml(image, name));
           listElement.appendChild(element);
-        }).catch(err => listElement.appendChild(createErrorElement(err)));
-      }).catch(err => listElement.appendChild(createErrorElement(err)));
+        }).catch(err => listElement.after(createErrorElement(err)));
+      }).catch(err => listElement.after(createErrorElement(err)));
     });
-  }).catch(err => listElement.appendChild(createErrorElement(err)));
+  }).catch(err => listElement.after(createErrorElement(err)));
 });
